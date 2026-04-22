@@ -24,15 +24,15 @@ export function AuthForm({ mode }: Props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState<"citizen" | "manager">("citizen");
+  const [role, setRole] = useState<"cidadao" | "gestor">("cidadao");
 
   const handleSubmit = async () => {
     try {
       if (mode === "login") {
-        await login(email, password);
+        await login(email);
         toast({ title: "Login realizado", status: "success" });
       } else {
-        await register(name, email, password, role);
+        await register(name, email);
         toast({ title: "Cadastro realizado", status: "success" });
       }
     } catch (error) {
@@ -61,9 +61,9 @@ export function AuthForm({ mode }: Props) {
         {mode === "register" && (
           <FormControl>
             <FormLabel>Perfil</FormLabel>
-            <Select value={role} onChange={(e) => setRole(e.target.value as "citizen" | "manager") }>
-              <option value="citizen">Cidadão</option>
-              <option value="manager">Gestor público</option>
+            <Select value={role} onChange={(e) => setRole(e.target.value as "cidadao" | "gestor") }>
+              <option value="cidadao">Cidadão</option>
+              <option value="gestor">Gestor público</option>
             </Select>
           </FormControl>
         )}

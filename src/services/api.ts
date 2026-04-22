@@ -41,7 +41,7 @@ export const api = {
     await mockDelay();
     return cache.find((d) => d.id === id);
   },
-  async createDemand(payload: Omit<Demand, "id" | "protocolo" | "criacao">): Promise<Demand> {
+  async createDemand(payload: Omit<Demand, "id" | "protocolo" | "criadaEm" | "atualizadaEm">): Promise<Demand> {
     await mockDelay();
     const demand: Demand = {
       ...payload,
@@ -66,7 +66,7 @@ export const api = {
             historico: [
               ...d.historico,
               {
-                id: randomUUID(),
+                id: newId(),
                 status,
                 descricao: observacaoGestor ?? "Atualização de status",
                 data: new Date().toISOString(),

@@ -79,7 +79,7 @@ export default function NewDemandPage() {
   const [accepted, setAccepted] = useState(false);
   const [form, setForm] = useState<Partial<Demand>>({ prioridade: "media", categoria: "outros" });
 
-  const handleChange = (key: keyof Demand, value: any) => setForm((p) => ({ ...p, [key]: value }));
+  const handleChange = (key: keyof Demand, value: string | number | Demand[keyof Demand]) => setForm((p) => ({ ...p, [key]: value }));
 
   const handleSubmit = async () => {
     if (!accepted) return toast({ title: "Confirme o aceite", status: "warning" });

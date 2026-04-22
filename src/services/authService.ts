@@ -5,5 +5,5 @@ import { User } from "@/types/user";
 export const authService = {
   login: ({ email }: AuthPayload) => api.login(email),
   register: ({ nome, email, telefone }: RegisterPayload): Promise<{ user: User; token: string }> =>
-    api.register(nome, email, "cidadao", telefone),
+    api.register(nome, email, telefone),
 };

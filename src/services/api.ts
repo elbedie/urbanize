@@ -7,9 +7,17 @@ import { newId } from "@/utils/uuid";
 import { detectRoleFromEmail } from "@/utils/roleDetection";
 
 const persistKey = "urbanize-demands";
+const persistVersion = "urbanize-demands-v";
+const CURRENT_VERSION = "2";
 
 const loadDemands = (): Demand[] => {
   if (typeof localStorage === "undefined") return [...mockDemands];
+  const version = localStorage.getItem(persistVersion);
+  if (version !== CURRENT_VERSION) {
+    localStorage.removeItem(persistKey);
+    localStorage.setItem(persistVersion, CURRENT_VERSION);
+    return [...mockDemands];
+  }
   const stored = localStorage.getItem(persistKey);
   if (!stored) return [...mockDemands];
   try {

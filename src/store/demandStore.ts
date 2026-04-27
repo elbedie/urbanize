@@ -25,7 +25,7 @@ export const useDemandStore = create<DemandState>((set, get) => ({
     try {
       const data = await demandService.getAll(filters);
       set({ demands: data, loading: false });
-    } catch (error: any) {
+    } catch {
       set({ error: "Erro ao carregar demandas", loading: false });
     }
   },
@@ -35,7 +35,7 @@ export const useDemandStore = create<DemandState>((set, get) => ({
       const demand = await demandService.getById(id);
       if (demand) set({ selected: demand });
       set({ loading: false });
-    } catch (error: any) {
+    } catch {
       set({ error: "Erro ao carregar demanda", loading: false });
     }
   },

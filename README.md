@@ -259,9 +259,9 @@ Consulte [docs/requisitos-urbanize.md](docs/requisitos-urbanize.md) para checkli
 
 ## Demo e Deploy
 
-**Deploy:** [Em breve]
+**Deploy:** https://urbanize-eta.vercel.app/
 
-**Vídeo demonstrativo:** [Em breve]
+**Vídeo demonstrativo:** https://drive.google.com/file/d/18r728n8keNXeKZlQN2OaagseRG1cEEZP/view?usp=sharing
 
 ## Próximos passos
 

@@ -4,11 +4,10 @@ import { MetricsSummary } from "@/types/metrics";
 
 export const useMetrics = () => {
   const [metrics, setMetrics] = useState<MetricsSummary | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | undefined>();
 
   useEffect(() => {
-    setLoading(true);
     metricsService
       .summary()
       .then(setMetrics)
